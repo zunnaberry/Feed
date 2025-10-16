@@ -1,0 +1,9 @@
+pytz
+openpyxl
+requests
+pandas
+openai
+telethon
+pdfplumber
+yfinance
+kiteconnect

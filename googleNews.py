@@ -339,7 +339,7 @@ def execute_google_core(time_cycle_for_report, time_unit_for_report):
     # Replace with your own credentials and details
     api_id = '26456121'
     api_hash = '74df6d467ed43266c62111554fcb6e90'
-    phone_number = '+919322504136'  # Your Telegram phone number
+    phone_number = '+919004317058'  # Your Telegram phone number
     target = '+919029085929'  # The recipient's username or phone number
     message = 'Hello, please find the attached file.'
     attachment_path = excel_file  # Path to your file

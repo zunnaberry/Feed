@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     api_id = '26456121'
     api_hash = '74df6d467ed43266c62111554fcb6e90'
-    phone_number = '+919322504136'  # Your Telegram phone number
+    phone_number = '+919004317058'  # Your Telegram phone number
     targets = '+919029085929'  # List of recipient phone numbers
     message = 'login attempt'
 
