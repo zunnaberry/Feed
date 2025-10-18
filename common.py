@@ -1,16 +1,18 @@
 from datetime import datetime
-import asyncio
 from openai import OpenAI
 import xml.etree.ElementTree as xmlTree
-
-open_client = OpenAI(api_key="sk-proj-TVVqZTaDZu4KYKNxF0ltT3BlbkFJKGKhiheE4y0pTYz1724W")
-
 from telethon import TelegramClient
 
 nse_feed_output = True
 
 baseurl = "https://www.nseindia.com/"
 
+
+open_client = None  # Declare the global variable
+
+def initialize_open_ai(open_ai_api_key):
+    global open_client
+    open_client = OpenAI(api_key=open_ai_api_key)
 
 def send_telegram_message_with_attachment(api_id, api_hash, phone_number, target, message, attachment_path=None):
     # Initialize the Telegram client

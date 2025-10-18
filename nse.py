@@ -220,16 +220,18 @@ def process_row_with_nse_news():
     except Exception as e:
         print(f"exception occur in flow while downloading complete rss feed! continue")
 
+from datetime import datetime, timedelta
 
 def is_within_n_time_units_nse(date_str, duration, unit):
     try:
-        # Convert the timestamp string to a datetime object
-        timestamp = datetime.strptime(date_str, '%d-%b-%Y %H:%M:%S')
+        # Try to parse with or without seconds
+        try:
+            timestamp = datetime.strptime(date_str, '%d-%b-%Y %H:%M:%S')
+        except ValueError:
+            timestamp = datetime.strptime(date_str, '%d-%b-%Y %H:%M')
 
-        # Get the current time
         now = datetime.now()
 
-        # Calculate the time 'duration' units ago from now
         if unit == 'hours':
             duration_ago = now - timedelta(hours=duration)
         elif unit == 'minutes':
@@ -242,8 +244,9 @@ def is_within_n_time_units_nse(date_str, duration, unit):
         return duration_ago <= timestamp <= now
 
     except Exception as e:
-        print(f"exception occur in flow while checking is_within_n_time_units_nse! continue " + date_str)
+        print(f"Exception occurred while checking is_within_n_time_units_nse! date_str: {date_str} - Error: {e}")
         return False
+
 
 
 def parse_nse_response(current, time_cycle_for_report, time_unit_for_report):
